@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function User(){
     return(
         <div>
-            <h1>User</h1>
+            <h3>User</h3>
             <Link
                 href="/Dashboard"
                 className="border rounded-xl"

@@ -8,9 +8,9 @@ export default function RootLayout({children}:
     <html lang="en">
       <body>
         <header>
-          <nav className="logo-name">
+          <nav>
             <div>
-              Avalmeos
+              <h1>Avalmeos</h1>
             </div>
             <div className="space-x-5">
               <Link 
@@ -31,8 +31,8 @@ export default function RootLayout({children}:
         <main>
           {children}
         </main>
-        <footer className="bg-slate-800 shadow-md;">
-          Footer
+        <footer>
+          <h1>Footer</h1>
         </footer>
       </body>
     </html>

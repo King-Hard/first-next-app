@@ -6,6 +6,9 @@ SSR- Server Side Rendering
 1, Advantage nito is meron syang SEO - Search Engine Optimization - Meaning meron tayong meta data rito na may lamang description, content, and so. Na related sa app natin kumbaga once na may isang user na nag search, then yung sinearch nya is tugma sa meta data description natin-ang unang lalabas is yung application natin. 
 
 NEXT.JS NOTES
+0, First diba we have src/app na may lamang global.css, layout.tsx, and page.tsx.
+Yung layout.tsx natin sa loob nung src/app is sya yung nagsisilbi nating app.tsx.
+
 1, export default function Home() {
   return (
     <div>
