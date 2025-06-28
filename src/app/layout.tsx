@@ -10,20 +10,26 @@ export default function RootLayout({children}:
         <header>
           <nav>
             <div>
-              <h1>Avalmeos</h1>
-            </div>
-            <div className="space-x-5">
               <Link 
                 href="/"
                 className="nav-link"
               >
-                Home
+                Avalmeos
               </Link>
+            </div>
+            <div className="space-x-5">
               <Link 
                 href="/Dashboard"
                 className="nav-link"
               >
                 Dashboard
+              </Link>
+
+              <Link 
+                href="/reg"
+                className="nav-link"
+              >
+                Register
               </Link>
             </div>
           </nav>

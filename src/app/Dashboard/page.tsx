@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Dashboard() {
     return(
         <div>
-            <h3>DashBoard</h3>
+            <h1 className="text-2xl font-semibold text-[#273E47]">DashBoard</h1>
             <Link 
                 href="/Dashboard/User"
                 className="border rounded-lg"

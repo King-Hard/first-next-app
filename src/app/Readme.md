@@ -48,3 +48,8 @@ Pero sa Next.js is:
 <Link href"/Home">Home</Link>
 
 5, Kung gusto pa natin maglagay ng next page sa loob ng dashboard natin example vi-view natin yung user page, gawa lang tayo ng folder sa loob ng dashboard na may name na User. Then, link lang natin sya ng href"/Dashboard/User"
+
+6, Pag gagamit tayo ng mgs react hooks, need lang natin na maglagay ng "use client" sa taas sa import place.
+
+7, label and input is magka-partner sa label gamit lang tayo ng HTMLFor="email" then sa input natin lagay lang tayo ng id"email"
+- Kumbaga need lang natin na i-match yung nakalagay sa label natin na HTMLFor="" and id="" sa input, ang function nito once na clinick ni user yung label natin is automatically na mafo-focus yung input natin.
