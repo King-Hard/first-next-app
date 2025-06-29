@@ -26,7 +26,7 @@ export default function RootLayout({children}:
               </Link>
 
               <Link 
-                href="/reg"
+                href="/Register"
                 className="nav-link"
               >
                 Register

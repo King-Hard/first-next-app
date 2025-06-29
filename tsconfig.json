@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/(auth)/reg/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/(auth)/Register/page.tsx", "src/app/(auth)/Register/page.js", "src/app/Actions/auth.js", "src/app/Actions/auth.tsx", "src/app/Lib/rules.tsx"],
   "exclude": ["node_modules"]
 }
