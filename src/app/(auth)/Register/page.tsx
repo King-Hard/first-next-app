@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { useActionState } from "react";
-import {register} from "../../Actions/auth"
+import { register } from "@/app/Actions/auth";
 
 export default function Register() {
+
   const [state, action, isLoading] = useActionState(register, undefined);
 
   return (
@@ -23,11 +24,10 @@ export default function Register() {
             name="email" 
             defaultValue={state?.email}
           />
-          {state?.errors?.email 
-            && (<p className="error">
-                {state.errors.email}
-              </p>)
-          }
+
+          {state?.errors?.email && (
+            <p className="error">{state.errors.email}</p>
+          )}
         </div>
 
         <div>
@@ -38,16 +38,17 @@ export default function Register() {
             name="password" 
             defaultValue={state?.password}
           />
-          {state?.errors?.password 
-            && (<div className="error">
-                  <p>Password must:</p>
-                  <ul className="list-disc list-inside ml-4">
-                    {state.errors.password.map(err =>(
-                      <li key={err}>{err}</li>
-                    ))}
-                  </ul>  
-                </div>)
-          }
+          
+          {state?.errors?.password && (
+            <div className="error">
+              <p>Password must:</p>
+              <ul className="list-disc list-inside ml-4">
+                {state.errors.password.map((err) =>(
+                  <li key={err}>{err}</li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
         <div>
@@ -56,26 +57,22 @@ export default function Register() {
             id="confirmPassword" 
             type="password" 
             name="confirmPassword" 
-            defaultValue={state?.confirmPassword}
           />
-          {state?.errors?.confirmPassword 
-            && (<p className="error">
-                {state.errors.confirmPassword}
-              </p>)
-          }
+          
+          {state?.errors?.confirmPassword && (
+            <p className="error">{state.errors.confirmPassword}</p>
+          )}
         </div>
 
         <div>
           <button 
-            className="btn-primary w-full"
+            className="btn-primary w-full flex justify-center"
             disabled={isLoading}
           >
-            {isLoading
-              ? "Loading..."
-              : "Register"
-            }
+            {isLoading ? "Loading..." : "Register"}
           </button>
         </div>
+
         <div className="flex justify-center space-x-1.5">
           <span>Do you have an account?</span>
           <Link 

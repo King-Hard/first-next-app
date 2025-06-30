@@ -1,21 +1,20 @@
-"use server"
+"use server";
 
-import { registrationFormShema } from "../Lib/rules";
+import { registrationFormSchema } from "../Lib/rules";
 
 export async function register(state, formData){
-
-    const validatedFields = registrationFormShema.safeParse({
+    const validatedFields = registrationFormSchema.safeParse({
         email: formData.get("email"),
-        password: formData.get("password"),
+        password: formData.get("password"),        
         confirmPassword: formData.get("confirmPassword"),
     });
 
     if(!validatedFields.success){
         return{
-            errors: validatedFields.error.flatten().fieldErrors,
-            email: formData.get("email"),
-            password: formData.get("password"),
-            confirmPassword: formData.get("confirmPassword"),
+            errors:
+                validatedFields.error.flatten().fieldErrors,
+                email: formData.get("email"),
+                password: formData.get("password"),
         };
     };
 
