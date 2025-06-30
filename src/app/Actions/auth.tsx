@@ -1,6 +1,7 @@
 "use server";
 
 import { registrationFormSchema } from "../Lib/rules";
+import { getCollection } from "../Lib/db";
 
 export async function register(state, formData){
     const validatedFields = registrationFormSchema.safeParse({
@@ -18,5 +19,8 @@ export async function register(state, formData){
         };
     };
 
-    console.log(validatedFields);
+    const {email, password} = validatedFields.data;
+    const userCollection = await getCollection("users");
+    const results = await userCollection?.insertOne({email, password});
+    console.log(results);
 };

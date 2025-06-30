@@ -147,3 +147,6 @@ export const registrationFormSchema = z
 - ayun na ginamit na natin dito yung validate natin vinalidate natin yung password and confirmPasssword and tehn kung hindi nga raw sila magkaparehas dito na papasok yung issue natin
 - issue.addIssue lang tayo, and then code colon lang tayo tapos z.ZodIssueCode.custom, then message: "", then yung path saang inout field to mangyayari which is sa path: ["confirmPassword"] natin.
 
+const {email, password} = validatedFields.data;
+
+const results = await userCollection?.insertOne({email, password});
