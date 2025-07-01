@@ -19,7 +19,7 @@ async function getDB(dbName){
         return client.db(dbName);
     }
     catch (err) {
-        console.log(err);
+        console.log("Connection Failed!", err);
     }
 };
 
