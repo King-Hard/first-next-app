@@ -171,3 +171,10 @@ const font = Poppins({
 - bali ganto: 
 <body classname={font.className}>
 
+11, usePathName - natin is heto yung nagsisilbing way natin para makapag active ng link like nasa home tayo magkakaroon ng indicator na nasa home tayo like may permanent color na red habang naka sta tayo sa home page, then pag lumipat na tayo page is mawawala na yung indicator na yon.
+
+- const pathName = usePathName() lang tayo sa ibaba ng return natin sa RootLayout. 
+- Then to check mag ano lang tayo ng className na may bracket tapos we use backtik lagay lang natin yung default natin na nav-link then then dollar sign curly braces tapos kunin natin yung ginawa natin const kanina na pathName tatlong === sa path ng link natin and then gamit tayo ng ternerary pathName === "/" ? "nav-link-active" : ""
+
+
+
