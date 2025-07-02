@@ -1,12 +1,18 @@
 import Link from "next/link";
 import "./globals.css";
 import { ReactNode } from "react";
+import {Poppins} from "next/font/google"
+
+const font = Poppins({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600"],
+})
 
 export default function RootLayout({children}:
   { children: ReactNode }) {
   return (
     <html lang="en">
-      <body>
+      <body className={font.className}>
         <header>
           <nav>
             <div>

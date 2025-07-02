@@ -1,0 +1,1 @@
+9, import "sever-only"; - ibig sabihin nito is pag gusto natin na yung isang page natin is sa server side lang natin mag run gagamitin lang natin to. Katulad sa sessions natin saka sa db ingration.
