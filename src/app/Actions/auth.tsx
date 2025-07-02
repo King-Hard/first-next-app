@@ -55,7 +55,7 @@ export async function register(state, formData){
     const results = await userCollection?.insertOne({email, password: hashedPassword,});
 
     //Create session
-    await createSession(results.insertedId)
+    await createSession(results.insertedId.toString())
      
     // Redirect 
     redirect("/Dashboard")
