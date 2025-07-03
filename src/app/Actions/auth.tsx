@@ -101,7 +101,3 @@ export async function login(state, formData){
     // Redirect
     return redirect("/");
 };
-
-<div>
- <p>HAHAHAHA</p>   asdasda
-</div>
