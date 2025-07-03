@@ -16,21 +16,20 @@ export async function register(state, formData){
         confirmPassword: formData.get("confirmPassword"),
     });
 
-    // If any form fields are invalid
-    if(!validatedFields.success){
-        return{
+    // Validated Form Fields
+    if(!validatedFields.success) return{
             errors: validatedFields.error.flatten().fieldErrors,
             email: formData.get("email"),
             password: formData.get("password"),
         };
-    };
 
     // Extract form fields
     const {email, password} = validatedFields.data;
 
-    // Check if email is already registered
+    // Check if Email is already Registered
     const userCollection = await getCollection("users");
-    if(!userCollection) return {errors:{email: "Server error!"}};
+    if(!userCollection) return{
+        errors: {email: "Server error!"}};
 
     const existingUser = await userCollection.findOne({email});
     if(existingUser) return{
@@ -66,11 +65,9 @@ export async function login(state, formData){
     });
 
     // If any form fields are valid
-    if(!validatedFields.success){
-        return{
+    if(!validatedFields.success) return{
             errors: validatedFields.error.flatten().fieldErrors,
         };
-    };
 
     // Extract from Field
     const {email, password} = validatedFields.data;
@@ -94,9 +91,9 @@ export async function login(state, formData){
         email: formData.get("email"),
     };
     
+    
     // Create a Session
     await createSession(existingUser._id.toString());
-    console.log(existingUser);
 
     // Redirect
     return redirect("/");
