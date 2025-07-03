@@ -1,7 +1,8 @@
 import "./globals.css";
 import { ReactNode } from "react";
 import {Poppins} from "next/font/google"
-import NavLink from "./Components/NavLink";
+import Navigation from "./Components/Navigation";
+import Footer from "./Components/Footer";
 
 const font = Poppins({
   subsets: ["latin"],
@@ -14,22 +15,12 @@ export default function RootLayout({children}:
     <html lang="en">
       <body className={font.className}>
         <header>
-          <nav>
-            <div> 
-              <NavLink label="Avalmeos" href="/"/>
-            </div>
-            <div className="space-x-5">
-              <NavLink label="Dashboard" href="/Dashboard"/>
-              <NavLink label="Register" href="/Register"/>
-            </div>
-          </nav>
+          <Navigation/>
         </header>
         <main>
           {children}
         </main>
-        <footer>
-          <h1>Footer</h1>
-        </footer>
+        <Footer/>
       </body>
     </html>
   );

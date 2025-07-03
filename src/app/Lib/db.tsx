@@ -8,9 +8,9 @@ if(!process.env.DB_URI){
 
 const client = new MongoClient(process.env.DB_URI, {
     serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
+        version: ServerApiVersion.v1,
+        strict: true,
+        deprecationErrors: true,
   },
 }); 
 
@@ -21,7 +21,7 @@ async function getDB(dbName){
         return client.db(dbName);
     }
     catch (err) {
-        console.log("Connection Failed!", err);
+        console.log(err);
     }
 };
 

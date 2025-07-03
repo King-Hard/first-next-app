@@ -1,16 +1,16 @@
 "use client";
 
+import { login } from "@/app/Actions/auth";
 import Link from "next/link";
 import { useActionState } from "react";
-import { register } from "@/app/Actions/auth";
 
-export default function Register() {
+export default function Login() {
 
-  const [state, action, isLoading] = useActionState(register, undefined);
+  const [state, action, isLoading] = useActionState(login, undefined);
 
   return (
     <div className="container w-1/2">
-      <h1 className="title">Register</h1>
+      <h1 className="title">Login</h1>
 
       <form 
         className="space-y-4"
@@ -36,31 +36,10 @@ export default function Register() {
             id="password" 
             type="password" 
             name="password" 
-            defaultValue={state?.password}
           />
           
           {state?.errors?.password && (
-            <div className="error">
-              <p>Password must:</p>
-              <ul className="list-disc list-inside ml-4">
-                {state.errors.password.map((err) =>(
-                  <li key={err}>{err}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input 
-            id="confirmPassword" 
-            type="password" 
-            name="confirmPassword" 
-          />
-          
-          {state?.errors?.confirmPassword && (
-            <p className="error">{state.errors.confirmPassword}</p>
+            <p className="error">{state.errors.password}</p>
           )}
         </div>
 
@@ -69,17 +48,17 @@ export default function Register() {
             className="btn-primary w-full flex justify-center"
             disabled={isLoading}
           >
-            {isLoading ? "Loading..." : "Register"}
+            {isLoading ? "Loading..." : "Login"}
           </button>
         </div>
 
         <div className="flex justify-center space-x-1.5">
-          <span>Do you have an account?</span>
+          <span>You don't have an account?</span>
           <Link 
-            href="/Login"
+            href="/Register"
             className="text-indigo-600 hover:text-indigo-700 hover:underline"
           >
-            Log in
+            Register
           </Link>
         </div>
       </form>
