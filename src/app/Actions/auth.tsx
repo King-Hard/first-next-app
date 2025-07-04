@@ -33,10 +33,7 @@ export async function register(state, formData){
 
     const existingUser = await userCollection.findOne({email});
     if(existingUser) return{
-            errors:{
-                email: "Email already exist in our database!"
-            },
-        };
+        errors:{email: "Email already exist in our database!"}};
 
     // Hash the password 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -51,7 +48,7 @@ export async function register(state, formData){
     await createSession(results.insertedId.toString())
      
     // Redirect 
-    return redirect("/");
+    return redirect("/Dashboard");
 };
 
 
@@ -96,5 +93,5 @@ export async function login(state, formData){
     await createSession(existingUser._id.toString());
 
     // Redirect
-    return redirect("/");
+    return redirect("/Dashboard");
 };

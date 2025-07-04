@@ -1,15 +1,21 @@
+import getAuthUser from "../Lib/getAuthUser";
 import NavLink from "./NavLink";
-export default function Navigation(){
-    return(
-        <nav>
-            <div> 
-              <NavLink label="Avalmeos" href="/"/>
-            </div>
-            <div className="space-x-5">
-              <NavLink label="Dashboard" href="/Dashboard"/>
-              <NavLink label="Login" href="/Login"/>
-              <NavLink label="Register" href="/Register"/>
-            </div>
-        </nav>
-    );
+
+export default async function Navigation(){
+  const authUser = await getAuthUser();
+  
+  return(
+    <nav>
+      <NavLink label="Avalmeos" href="/"/>
+        {authUser 
+        ? (<div className="flex justify-center">
+            <NavLink label="Dashboard" href="/Dashboard"/>
+          </div>)
+        : (<div>
+            <NavLink label="Register" href="/Register"/>         
+            <NavLink label="Login" href="/Login"/>
+          </div>)
+        }        
+    </nav>
+  ); 
 };
