@@ -1,3 +1,4 @@
+import { logout } from "../Actions/auth";
 import getAuthUser from "../Lib/getAuthUser";
 import NavLink from "./NavLink";
 
@@ -10,6 +11,9 @@ export default async function Navigation(){
         {authUser 
         ? (<div className="flex justify-center">
             <NavLink label="Dashboard" href="/Dashboard"/>
+            <form action={logout}>
+              <button className="nav-link">Logout</button>
+            </form>
           </div>)
         : (<div>
             <NavLink label="Register" href="/Register"/>         
