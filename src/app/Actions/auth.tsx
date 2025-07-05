@@ -100,4 +100,4 @@ export async function logout(){
     const cookieStore = cookies();
     cookieStore.delete("session");
     redirect("/");
-}
+};
