@@ -17,7 +17,7 @@ export async function register(state, formData){
         confirmPassword: formData.get("confirmPassword"),
     });
 
-    // Validated Form Fields
+    // If any form fields are valid
     if(!validatedFields.success) return{
             errors: validatedFields.error.flatten().fieldErrors,
             email: formData.get("email"),
@@ -88,13 +88,13 @@ export async function login(state, formData){
         email: formData.get("email"),
     };
     
-    
     // Create a Session
     await createSession(existingUser._id.toString());
 
     // Redirect
     return redirect("/Dashboard");
 };
+
 
 export async function logout(){
     const cookieStore = cookies();

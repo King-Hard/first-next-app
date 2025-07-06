@@ -1,6 +1,6 @@
 import "server-only";
 
-// imports MongoDB client and API version
+// imports MongoClient and ServerApiVersion
 import { MongoClient, ServerApiVersion } from "mongodb";
 
 // throws error

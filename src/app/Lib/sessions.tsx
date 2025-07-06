@@ -1,8 +1,7 @@
 // access to server only
 import "server-only";
 
-// imports JWT sign and verify functions
-// access server-side cookie store
+// imports jwtVerify, SignJWT, and cookies
 import { jwtVerify, SignJWT } from "jose";
 import { cookies } from "next/headers";
 
