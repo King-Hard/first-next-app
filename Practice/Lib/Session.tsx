@@ -1,57 +1,54 @@
 // access to server only
 import "server-only";
 
-// imports jwtVerify, SignJWT, and cookies
+// first import jwtVerify and SignJWT | cookies
 import { jwtVerify, SignJWT } from "jose";
 import { cookies } from "next/headers";
 
-// fetch secret key
+// second fetch secret key
 const secretKey = process.env.SECRET_SESSION;
 
-// encode secret
+// third encode secret key
 const encodedKey = new TextEncoder().encode(secretKey);
 
-// encrypt
+// fourth encrypt
 export async function encrypt(payload){
-    // create and sign JWT
     return new SignJWT(payload)
         .setProtectedHeader({alg: "HS256"})
         .setIssuedAt()
-        .setExpirationTime("7d")
+        .setExpirationTime()
         .sign(encodedKey)
 };
 
-// decrypt 
+// fifth decrypt
 export async function decrypt(session){
     try{
-        // verify JWT and extract payload
-        const {payload} = await jwtVerify(session, encodedKey, {
-            algorithms: ["HS256"],
+        const {payload} = await jwtVerify(session, secretKey, {
+            algorithms: ["HS256"]
         });
-        return payload;
     }
     catch{
-        console.log("Failed to verify sessions!");
+        console.log("Failed to verify session");
     }
 };
 
-// create session
-export async function createSession(userId){
+// sixth create session
+async function createSession(){
     // calculate expiration time
-    const expireAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+    const expireAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 10000);
 
-    // create session token
+    // create signed session token
     const session = await encrypt({userId, expireAt});
 
     // creating cookie
-    const cookieStore = await cookies();
+    const cookieStore = cookies();
 
     // cookie store
-    cookieStore.set("session", session, {
+    cookieStore.set("session", session{
         httpOnly: true,
         secure: true,
         expires: expireAt,
         sameSite: "lax",
-        path: "/",
+        path: "/"
     });
 };

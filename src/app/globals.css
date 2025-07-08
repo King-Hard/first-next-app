@@ -58,6 +58,9 @@
   .nav-link {
     @apply text-slate-200 hover:bg-slate-700 hover:text-white rounded-md px-3 py-2 text-sm font-normal;
   }
+  .logout {
+    @apply text-slate-200 hover:bg-red-600 rounded-md px-3 py-2 text-sm font-normal cursor-pointer;
+  }
   .nav-link-active {
     @apply bg-slate-700;
   }

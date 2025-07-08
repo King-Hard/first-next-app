@@ -10,9 +10,10 @@ export default async function Navigation(){
       <NavLink label="Avalmeos" href="/"/>
         {authUser 
         ? (<div className="flex justify-center">
+            <NavLink label="New Post" href="/Posts/Create"/>
             <NavLink label="Dashboard" href="/Dashboard"/>
             <form action={logout}>
-              <button className="nav-link">Logout</button>
+              <button className="logout">Logout</button>
             </form>
           </div>)
         : (<div>

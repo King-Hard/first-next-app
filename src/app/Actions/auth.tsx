@@ -30,11 +30,14 @@ export async function register(state, formData){
     // Check if Email is already Registered
     const userCollection = await getCollection("users");
     if(!userCollection) return{
-        errors: {email: "Server error!"}};
+        errors: {email: "Server error!"}
+    };
 
     const existingUser = await userCollection.findOne({email});
     if(existingUser) return{
-        errors:{email: "Email already exist in our database!"}};
+        errors:{email: "An account with this email already exists."},
+        email: formData.get("email"),
+    };
 
     // Hash the password 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -72,7 +75,7 @@ export async function login(state, formData){
     // Check if Email exist in our DB
     const userCollection = await getCollection("users");
     if(!userCollection) return{
-        errors:{email: "Server Error"}
+        errors:{email: "Server Error"},
     };
 
     const existingUser = await userCollection.findOne({email})
@@ -84,7 +87,7 @@ export async function login(state, formData){
     // Check Password
     const matchedPassword = await bcrypt.compare(password, existingUser.password) 
     if(!matchedPassword) return{
-        errors:{password: "Invalid Credentials!"},
+        errors:{password: "Invalid password!"},
         email: formData.get("email"),
     };
     
@@ -101,3 +104,4 @@ export async function logout(){
     cookieStore.delete("session");
     redirect("/");
 };
+
