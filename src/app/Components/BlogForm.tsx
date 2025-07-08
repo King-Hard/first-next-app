@@ -16,6 +16,7 @@ const [state, action, isPending] = useActionState(handler, undefined);
                     id="title" 
                     type="text" 
                     name="title" 
+                    defaultValue={state?.title}
                 />
 
                 {state?.errors?.title && (
@@ -27,11 +28,13 @@ const [state, action, isPending] = useActionState(handler, undefined);
                 <label htmlFor="content">Content</label>
                 <textarea 
                     rows="6"
+                    type="text"
                     name="content"
+                    defaultValue={state?.content}
                 ></textarea>
 
-                {state?.errors?.title && (
-                    <p className="error">{state.errors.title}</p>
+                {state?.errors?.content && (
+                    <p className="error">{state.errors.content}</p>
                 )}
             </div>
 
