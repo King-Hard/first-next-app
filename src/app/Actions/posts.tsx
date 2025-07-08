@@ -40,5 +40,6 @@ export async function createPost(state, formData) {
         };
     }
 
+    // redirect
     redirect("/Dashboard");
 };

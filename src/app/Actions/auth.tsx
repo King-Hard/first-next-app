@@ -102,6 +102,7 @@ export async function login(state, formData){
 export async function logout(){
     const cookieStore = cookies();
     cookieStore.delete("session");
-    redirect("/");
+
+    return redirect("/");
 };
 

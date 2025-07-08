@@ -41,6 +41,7 @@ const [state, action, isPending] = useActionState(handler, undefined);
             <div className="flex justify-center">
             <button 
                 className="btn-primary w-full"
+                type="submit"
                 disabled={isPending}
             >
                 {isPending ? "Loading..." : "Submit"}
